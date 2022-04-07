@@ -9,4 +9,5 @@ WORKDIR /usr/ticket-api
 RUN yum install git-core -y
 ADD id_rsa.pub ~/.ssh/
 RUN git clone https://github.com/eshikav/movie-guru-api.git
-RUN mv movie-guru-api/* /usr/ticket-api/
+RUN mv movie-guru-api/ticket-api.py app.py
+RUN rm -f movie-guru-api/
