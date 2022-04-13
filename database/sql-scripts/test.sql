@@ -6,4 +6,9 @@ create table Shows(ShowId int, Date datetime, StartTime time, Endtime time,Cinem
 create table CinemaSeat(CinemaSeatId int, SeatNumber int, type enum('Regular', 'Balcony'), CinemaHallId int, PRIMARY KEY (CinemaSeatId), FOREIGN KEY (CinemaHallId) REFERENCES CinemaHall(CinemaHallId));
 create table User(UserId int, Name varchar(64), Password varchar(20), Email varchar(64), Phone varchar(16), PRIMARY KEY (UserId));
 create table Booking(BookingId int, NumberOfSeats int, Timestamp datetime, Status enum('Booked','Reserved'),UserId int, ShowId int, PRIMARY KEY (BookingId), FOREIGN KEY (UserId) REFERENCES User(UserId), FOREIGN KEY (ShowId) REFERENCES Shows(ShowId))
-
+insert into Movie(MovieId, Title,Duration,Language,ReleaseDate,City,Genre) VALUES (1,"Bheemlanayak","2022-11-11","Telugu","2022-11-11","
+Stockholm","Action");
+insert into Movie(MovieId, Title,Duration,Language,ReleaseDate,City,Genre) VALUES (2,"Sarkarvaripata","2022-11-11","Telugu","2022-11-11","
+Stockholm","Comedy");
+insert into Movie(MovieId, Title,Duration,Language,ReleaseDate,City,Genre) VALUES (3,"Bheemlanayak","2022-11-11","Telugu","2022-11-11","
+Goteborg","Action");
