@@ -16,16 +16,11 @@ services:
   backend:
     image: mysqlserver:01
     pull_policy: never
-    expose:
-      - "30060"
+    ports:
+      - "127.0.0.1:30060:30060/tcp"
     environment:
-      - MYSQL_ROOT_PASSWORD=Test123@
-    volumes:
-      - source: $PWD/app-data
-        type: bind
-        target: /var/lib/mysql
-        bind:
-          create_host_path: True
-
-    
-
+      MYSQL_ROOT_PASSWORD: "Test123"
+    volumes: 
+     - source: app-data/
+       type: bind
+       target: /var/lib/mysql
