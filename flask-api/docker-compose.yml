@@ -1,0 +1,31 @@
+services:
+  frontend:
+    image: flask-api:01
+    pull_policy: never
+    links:
+      - "backend:database"
+    ports:
+      - "127.0.0.1:5000:5000/tcp"
+    environment:
+      DB_USER: "root"
+      DB_PASSWORD: "Test123@"
+      DB_HOST: "database"
+      DB_AUTOCOMMIT: "False"
+      DB_DATABASE: "MovieGuru"
+      DB_TS_ISOLATION_LEVEL: "SERIALIZABLE"
+  backend:
+    image: mysqlserver:01
+    pull_policy: never
+    expose:
+      - "30060"
+    environment:
+      - MYSQL_ROOT_PASSWORD=Test123@
+    volumes:
+      - source: $PWD/app-data
+        type: bind
+        target: /var/lib/mysql
+        bind:
+          create_host_path: True
+
+    
+

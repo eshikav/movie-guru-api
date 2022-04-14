@@ -18,7 +18,7 @@
 The repo has a Dockerfile, to build the container image run as below
 
 ```bash
-export APP_IMAGE="flask-api:01"
+export APP_IMAGE="mysql:01"
 docker build --no-cache -t $APP_IMAGE .
 docker images
 ```
@@ -26,8 +26,7 @@ docker images
 ## Run on Docker:
 
 ```bash
-export APP=database
-
+export APP=mysql
 mkdir $PWD 
 docker run -v "$PWD/data":/var/lib/mysql -p 127.0.0.1:3007:3006/tcp  -e MYSQL_ROOT_PASSWORD="Test123@" --name $APP -d  $APP_IMAGE
 docker ps
