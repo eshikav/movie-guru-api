@@ -22,7 +22,7 @@
 
 The repo has a Dockerfile, to build the container image run as below
 
-``bash
+```bash
 export APP_IMAGE="flask-api:01"
 docker build --no-cache -t $APP_IMAGE .
 [+] Building 8.2s (6/10)
@@ -41,11 +41,11 @@ docker images
 docker images
 REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
 flask-api    01        99994986953c   24 seconds ago   79.7MB
-``
+```
 
 ## Run on Docker:
 
-``bash
+```bash
 export APP=flask
 docker run -p 127.0.0.1:5000:5000/tcp --name $APP -d  $APP_IMAGE
 34991e77141d6c6b1ff237be793af149da2848ca89eae3e5ee27a6066c4f51d9
@@ -53,7 +53,7 @@ docker run -p 127.0.0.1:5000:5000/tcp --name $APP -d  $APP_IMAGE
 docker ps
 CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                      NAMES
 34991e77141d   flask-api:01   "/usr/bin/flask run …"   4 seconds ago   Up 3 seconds   127.0.0.1:5000->5000/tcp   flask
-``
+```
 
 ## Accessing the application:
 
