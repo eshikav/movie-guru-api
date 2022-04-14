@@ -8,8 +8,9 @@ services:
       - "127.0.0.1:5000:5000/tcp"
     environment:
       DB_USER: "root"
-      DB_PASSWORD: "Test123@"
+      DB_PASSWORD: "Test123"
       DB_HOST: "database"
+      DB_PORT: 3306
       DB_AUTOCOMMIT: "False"
       DB_DATABASE: "MovieGuru"
       DB_TS_ISOLATION_LEVEL: "SERIALIZABLE"

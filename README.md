@@ -22,6 +22,7 @@
 | ----------- | ----------- | ----------- |
 | DB_USER      | "root"       | The username that is used to connect to the database |
 | DB_PASSWORD   | "Test123"        | Password of the database user |
+| DB_PORT | 3306 | Database port to connect |
 | DB_HOST   | "database" | Database host to connect |
 | DB_AUTOCOMMIT | "False" | Autocommit for the database |
 | DB_DATABASE | "MovieGuru" | Database to select |

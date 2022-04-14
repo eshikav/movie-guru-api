@@ -1,35 +1,39 @@
+import os
 from flask import Flask, request
+from mysql.connector import connection
 
 app = Flask(__name__)
 
 
-import os
 
-DB_USER = os.getenv('DATABASE_USER', default=None)
-DB_PASSWORD = os.getenv('DATABASE_PASSWORD', default=None)
+
+DB_USER = os.getenv('DB_USER', default=None)
+DB_PASSWORD = os.getenv('DB_PASSWORD', default=None)
 DB_HOST = os.getenv('DB_HOST', default=None)
-DB_PORT = os.getenv('DB_PORT', default=None)
-DB_AUTOCOMMIT = os.getenv('DB_AUTOCOMMIT', default=False)
+DB_PORT = int(os.getenv('DB_PORT', default=None))
+DB_AUTOCOMMIT = eval(os.getenv('DB_AUTOCOMMIT', default=False))
 DB_DATABASE = os.getenv('DB_DATABASE', default="test")
 
+def getData(connect, tableName):
+  querry = "select * from %s" %(tableName)
+  connect.start_transaction(isolation_level="SERIALIZABLE")
+  connect.connect()
+  cursor = connect.cursor()
+  cursor.execute(querry)
+  if cursor.with_rows:
+    for i in cursor:
+      data = cursor.fetchall()
+  connect.commit()
+  connect.close()
+  return data
 
 def getConnectorObject():
-    return MySQLConection(user=DB_USER,
+    return connection.MySQLConnection(user=DB_USER,
                           password=DB_PASSWORD,
                           database=DB_DATABASE,
                           port=DB_PORT,
                           host=DB_HOST,
                           autocommit=DB_AUTOCOMMIT)
-
-def getMovies(cnx, table):
-   query = "SELECT * from %s"
-   cnx.connect()
-   cnx.start_transaction(isolation_level='SERIALIZABLE')
-   cursor = cnx.cursor()
-   result = cursor.execute(query)
-   if result.with_rows:
-       result = result.fetchall()
-   return result
 
 @app.route("/")
 def hello_world():
@@ -37,8 +41,10 @@ def hello_world():
 
 @app.route('/movies')
 def get_movies():
+    cnx = getConnectorObject()
+
     return {
-        "movies": ['sarkarvaripata','beemlanayak']
+        "movies": getData(cnx, "Movie")
         }
 
 @app.route('/cinemas')
