@@ -1,8 +1,8 @@
-#Flask Api
+# Flask Api
 
-#It runs the Flask application that is containerised in any of the container runtime environment.
+# It runs the Flask application that is containerised in any of the container runtime environment.
 
-##Prerequisites
+## Prerequisites
 
 1. Running this application requires any of the Container Runtime environment to be installed.(Refer to https://docs.docker.com/engine/install/)
 
@@ -18,7 +18,7 @@
 | DB_DATABASE | None | Database to select |
 | DB_TS_ISOLATION_LEVEL | None | Isolation level for the transactions |
 
-##Building the application:
+## Building the application:
 
 The repo has a Dockerfile, to build the container image run as below
 
@@ -43,7 +43,7 @@ REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
 flask-api    01        99994986953c   24 seconds ago   79.7MB
 ``
 
-##Run on Docker:
+## Run on Docker:
 
 ``bash
 export APP=flask
@@ -55,11 +55,11 @@ CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS   
 34991e77141d   flask-api:01   "/usr/bin/flask run …"   4 seconds ago   Up 3 seconds   127.0.0.1:5000->5000/tcp   flask
 ``
 
-##Accessing the application:
+## Accessing the application:
 
 Open and a browser and navigate to 127.0.0.1:5000/
 
-##Running on Kubernetes:
+## Running on Kubernetes:
 
 
 References:
