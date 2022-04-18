@@ -6,7 +6,7 @@
 3. Database (mysql-server)
 
 
-![Movie Guru Application Architecture!](./images/novie-guru-architecture.png)
+![Movie Guru Application Architecture!](./images/movie-guru-architecture.png)
 ## Prerequisites
 
 1. Running this application requires any of the Container Runtime environment to be installed.(Refer to https://docs.docker.com/engine/install/)
