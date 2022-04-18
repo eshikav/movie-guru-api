@@ -1,9 +1,12 @@
 # Ticketing Application
 
-## It runs the movie ticketing application with the below architecture
-1. Frontend server (Flask)
-2. Backend service (mysql-server)
+## Architecture
+1. Frontend server (React)
+2. Backend service (flask api-server)
+3. Database (mysql-server)
 
+
+![Movie Guru Application Architecture!](./images/novie-guru-architecture.png)
 ## Prerequisites
 
 1. Running this application requires any of the Container Runtime environment to be installed.(Refer to https://docs.docker.com/engine/install/)
